@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@model IEnumerable<WEB2022APR_P05_T2.Models.Product>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> CRM </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div>
+        
+
+                @if (Model.ToList().Count > 0)
+                {
+
+                    @foreach (var item in Model)
+                    {
+                        @if (item.EffectiveDate.Value.Month == DateTime.Now.Month)
+                        {
+                            
+                                <img src="~/image/Products/@item.ProductImage" height="300">
+                            
+                        }
+
+                    }
+                }
+                else
+                {
+                    <span style="color:red">No record found!</span>
+                }
+
+            
+        </div>
+        <form method="post" action="~/Home/UserLogin">
+            <input type="text" id="uname" name="uname" placeholder="Username" required><br />
+            <input type="text" id="upass" name="upass" placeholder="Password" required>
+            <input type="submit" value="Submit">
+            <br />
+            <span style="color:red;">@TempData["Message"]</span>
+        </form>
+    
+</body>
+</html>

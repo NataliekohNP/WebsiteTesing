@@ -1,0 +1,51 @@
+﻿@using System.IO
+@model IEnumerable<WEB2022APR_P05_T2.Models.Feedback>
+
+@{
+    ViewData["Title"] = "Feedback";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/customer_style.css")" rel="stylesheet" type="text/css" />
+}
+
+<h1>@ViewData["name"]'s Feedback List</h1>
+
+<br><br />
+
+<div class="table-backdrop">
+    <div class="create-feedback-btn-box">     
+        <span class="create-feedback-btn" onclick="location.href='@Url.Action("CreateFeedback", "Customer")'" >Create Feedback</span>
+    </div> 
+    <table>
+        <tbody>
+            @{int i = 1;}
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        Feedback @i : @Html.DisplayFor(modelItem => item.UserSubject) 
+                        @{
+                            i++;
+                        }
+                    </td>
+                    <td>
+                        @{
+                            string imageFileName = item.UserSubject.ToLower() + ".jpg";
+                            if (item.ImageFileName != null)
+                            {
+                                <img src="~/image/@imageFileName" alt="@imageFileName" style="width:50px">
+                            }
+                            else
+                            {
+                                <img src="~/image/@imageFileName" alt="No picture found" style="width:50px">
+                            }
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("View", "ViewResponse", new { id=item.FeedbackID }, new {@class = "row-status-1"})
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

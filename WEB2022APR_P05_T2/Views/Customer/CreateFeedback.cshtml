@@ -1,0 +1,42 @@
+﻿@model WEB2022APR_P05_T2.Models.Feedback
+
+@{
+    ViewData["Title"] = "Create Feedback";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/customer_style.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="table-backdrop-create">
+    <div>
+        <div>
+            <form asp-action="CreateFeedback" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="UserSubject" placeholder="Enter Subject" class="form-control" />
+                    <span asp-validation-for="UserSubject" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <textarea style="height: 10em;" asp-for="UserFeedback" placeholder="Enter Feedback"  class="form-control" ></textarea>
+                    <span asp-validation-for="UserFeedback" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="fileToUpload">New Photo (jpg format)</label>
+                    <input asp-for="fileToUpload" accept="image/jpeg" />
+                </div>
+                <div>
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <span style="color:red;">@ViewData["Message"]</span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style=" height: auto; margin-top: 3em; width: 100%; text-align: center;">
+        <a asp-action="Profile" class="row-status-2" style="text-decoration:none;" >Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

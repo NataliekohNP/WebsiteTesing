@@ -1,0 +1,80 @@
+﻿@model WEB2022APR_P05_T2.Models.CustomerEdit
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/customer_style.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="table-backdrop-create">
+    <h3 style="text-align:center;">Edit Customer</h3>
+    <form asp-action="Edit">
+        <div class="row">   
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col">                
+                <label asp-for="MemberID" class="control-label"></label>
+                <input asp-for="MemberID" class="form-control" readonly />
+                <span asp-validation-for="MemberID" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label asp-for="MName" class="control-label"></label>
+                <input asp-for="MName" class="form-control" readonly/>
+                <span asp-validation-for="MName" class="text-danger" ></span>
+            </div>
+            <div class="w-100"></div><br>
+            <div class="col">
+                <label asp-for="MGender" class="control-label"></label>
+                <input asp-for="MGender" class="form-control" readonly/>
+                <span asp-validation-for="MGender" class="text-danger" ></span>
+            </div>
+            <div class="col">
+                <label asp-for="MBirthDate" class="control-label"></label>
+                <input asp-for="MBirthDate" class="form-control" readonly/>
+                <span asp-validation-for="MBirthDate" class="text-danger" ></span>
+            </div>
+            <div class="w-100"></div><br>
+            <div class="col">
+                <label asp-for="MAddress" class="control-label" style="color:black"></label>
+                <input asp-for="MAddress" class="form-control" />
+                <span asp-validation-for="MAddress" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label asp-for="MCountry" class="control-label"></label>
+                <input asp-for="MCountry" class="form-control" readonly/>
+                <span asp-validation-for="MCountry" class="text-danger" ></span>
+            </div>
+            <div class="w-100"></div><br>
+            <div class="col">
+                <label asp-for="MTelNo" class="control-label" style="color:black"></label>
+                <input asp-for="MTelNo" class="form-control" />
+                <span asp-validation-for="MTelNo" class="text-danger"></span>
+            </div>
+            <div class="col">
+                <label asp-for="MEmailAddr" class="control-label" style="color:black"></label>
+                <input asp-for="MEmailAddr" class="form-control"/>
+                <span asp-validation-for="MEmailAddr" class="text-danger" ></span>
+            </div>
+            <div class="w-100"></div><br/>
+            <div class="col-auto">
+                <label asp-for="MPassword" class="control-label" style="color:black"></label>
+                <input asp-for="MPassword" class="form-control" />
+                <span asp-validation-for="MPassword" class="text-danger"></span>
+            </div>
+            <div class="w-100"></div><br/>
+            <div class="col">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+    <div style=" height: auto; margin-top: 3em; width: 100%; text-align: center;">
+        <a asp-action="Profile" class="row-status-2" style="text-decoration:none;" >Back to List</a>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

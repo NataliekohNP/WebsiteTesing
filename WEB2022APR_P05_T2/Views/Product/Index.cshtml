@@ -1,0 +1,12 @@
+﻿@model IEnumerable<WEB2022APR_P05_T2.Models.Product>
+
+@{
+    ViewData["Title"] = "View Products";
+}
+
+<h1>Index</h1>
+
+<h4 class="PageTitle">View Products</h4>
+
+<partial name="~/Views/Product/_GetAllProducts.cshtml" model="@Model" />
+

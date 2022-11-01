@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WEB2022APR_P05_T2.Models.CustomerEdit
+@{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@{
+    if (DateTime.Now.Month == Model.MBirthDate.Month)
+    {
+        <span style="font-size: 3rem">Happy Birthday, <span style="font-weight:bold">@Model.MName!</span> <br><br> Enjoy your 15% birthday discount for each purchase in the your birthday month!</span>
+    }
+    else
+    {
+        <span style="font-size: 3rem">Welcome, <span style="font-weight:bold">@Model.MName!</span> <br> <br> As to date, ZZFashion has opened many fashion stores across 20 countries in the world, selling fashion design for both men and women.</span>
+    }
+
+}

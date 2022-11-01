@@ -1,0 +1,34 @@
+﻿@model WEB2022APR_P05_T2.Models.MonthlySpendingViewModel
+@{
+    ViewData["Title"] = "View Annual Spending";
+}
+<h4 class="PageTitle">View Monthly Spending</h4>
+
+<hr />
+<form asp-controller="Marketing" asp-action="ViewMonthlySpending" method="post">
+    <div> Select Year and Month</div>
+    <div>
+        <label asp-for="selYear">Select Year</label>
+        <select asp-for="selYear" asp-items="@ViewData["SelectYear"] as List<SelectListItem>"></select>
+    </div>
+    <div>
+        <label asp-for="selMonth">Select Month</label>
+        <select asp-for="selMonth" asp-items="@ViewData["SelectMonth"] as List<SelectListItem>"></select>
+    </div>
+    <div>
+        <input type="submit" value="Search" />
+    </div>
+</form>
+
+@if (Convert.ToBoolean(ViewData["ShowResult"]))
+{
+    if (Model.monthlySpendingList.Count > 0)
+    {
+        <h5>Customers</h5>
+        <partial name="~/Views/Marketing/_ViewMonthlySpending.cshtml" model="@Model.monthlySpendingList" />
+    }
+    else
+    {
+        <h5>no customers found</h5>
+    }
+}

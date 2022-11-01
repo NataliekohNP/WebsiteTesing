@@ -1,0 +1,72 @@
+﻿@model WEB2022APR_P05_T2.Models.Customer
+
+@{
+    ViewData["Title"] = "Account";
+}
+
+<h4 class="PageTitle">Create New Customer Record</h4>
+
+<hr />
+<div class="row">
+<div class="col-md-4">
+    <form asp-action="Account">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="MemberID"></label>
+            <input asp-for="MemberID" />
+            <span asp-validation-for="MemberID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MName"></label>
+            <input asp-for="MName" />
+            <span asp-validation-for="MName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MGender"></label>
+            <div class="form-group form-check-inline">
+                @foreach (char item in ViewData["MGender"]
+               as List<char>)
+                {
+                    <label>
+                        <input asp-for="MGender" type="radio" value="@item" />
+                        @item
+                    </label>
+                }
+            </div>
+<span asp-validation-for="MGender" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="MBirthDate"></label>
+    <input asp-for="MBirthDate" />
+<span asp-validation-for="MBirthDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="MAddress"></label>
+    <input asp-for="MAddress" />
+<span asp-validation-for="MAddress" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="MCountry"></label>
+    <select asp-for="MCountry" asp-items="@ViewData["MCountry"] as List<SelectListItem>"></select>
+<span asp-validation-for="MCountry" class="text-danger"></span>
+</div>
+            <div class="form-group">
+                <label asp-for="MTelNo"></label>
+                <input asp-for="MTelNo" />
+                <span asp-validation-for="MTelNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MEmailAddr"></label>
+                <input asp-for="MEmailAddr" />
+                <span asp-validation-for="MEmailAddr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

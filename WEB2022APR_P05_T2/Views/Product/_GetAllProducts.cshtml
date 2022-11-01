@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WEB2022APR_P05_T2.Models.Product>
+
+
+<head>
+    <style>
+        div.gallery {
+            color:black;
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 20%;
+        }
+
+            div.gallery:hover {
+                border: 1px solid #777;
+            }
+
+            div.gallery img {
+                width: 90%;
+                height: auto;
+            }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+@if (Model.ToList().Count > 0)
+{
+
+    @foreach (var item in Model)
+    {
+<a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">
+    <div class="gallery">
+        @{ string imageFileName = item.ProductImage; }
+        <img src="~/image/Products/@imageFileName"/>
+
+        <div class="desc">@item.ProductTitle</div>
+    </div>
+</a>
+
+    }
+
+}
+else
+{
+    <span style="color:red">No record found!</span>
+}

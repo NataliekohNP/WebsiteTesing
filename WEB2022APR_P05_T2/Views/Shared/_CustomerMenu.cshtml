@@ -1,0 +1,32 @@
+﻿<!-- A grey navbar that expands horizontally at medium device -->
+<nav class="navbar navbar-custom navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+    <div class="container">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img id="logo" src="~/image/passion.png" alt="passion" />CRM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#customerNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Links in the navbar, displayed as drop-down list when collapsed -->
+    <div class="collapse navbar-collapse" id="customerNav">
+        <!-- Links that are aligned to the left, mr-auto: right margin auto-adjusted -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="~/Customer/ViewVoucher"> View Voucher </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="~/Customer/Feedback"> Feedback </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="~/Customer/Profile"> View Profile </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="~/Home/LogOut">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>

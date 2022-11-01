@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WEB2022APR_P05_T2.Models.Feedback>
+
+@if (Model.ToList().Count > 0)
+{
+
+    <div class="table-responsive">
+        <table id="viewFeedback" class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>MemberID</th>
+                    <th>User Subject</th>
+                    <th>User Feedback</th>
+                    <th>Time Posted</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td> @item.MemberID</td>
+                    <td> @item.UserSubject</td>
+                    <td> @item.UserFeedback</td>
+                    <td> @item.DateTimePosted</td>
+                    <td><a asp-action="Respond" asp-controller="Marketing" asp-route-id="@item.FeedbackID.ToString()" style="color: black">Respond</a> </td> 
+                </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+    </div>
+
+}

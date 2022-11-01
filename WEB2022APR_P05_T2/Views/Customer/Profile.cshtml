@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WEB2022APR_P05_T2.Models.Customer>
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/customer_style.css")" rel="stylesheet" type="text/css" />
+}
+<div class="table-backdrop-create">
+    <h3 style="text-align:center;">View Profile</h3>
+    @foreach (var item in Model) {
+        <div class="row" style="color:white;">
+            <div class="col">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MemberID)</label>
+                <span class="form-control">@Html.DisplayFor(modelItem => item.MemberID)</span>
+            </div>
+            <div class="col">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MName)</label>
+                <span class="form-control">@Html.DisplayFor(modelItem => item.MName)</span>
+            </div>
+            <div class="w-100"></div><br>
+            <div class="col">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MGender)</label>
+                <span class="form-control">@Html.DisplayFor(modelItem => item.MGender)</span>
+            </div>
+            <div class="col">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MBirthDate)</label>
+                <span class="form-control">@Html.DisplayFor(modelItem => item.MBirthDate)</span>
+            </div>
+            <div class="w-100"></div><br>
+            <div class="col">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MAddress)</label>
+                <span class="form-control">@Html.DisplayFor(modelItem => item.MAddress)</span>
+            </div>                 
+            <div class="col">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MCountry)</label>
+                <span class="form-control">@Html.DisplayFor(modelItem => item.MCountry)</span>
+            </div>     
+            <div class="w-100"></div><br>
+            <div class="col">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MTelNo)</label>
+                <span class="form-control">@Html.DisplayFor(modelItem => item.MTelNo)</span>
+            </div>               
+            <div class="col">
+                <label class="control-label">@Html.DisplayNameFor(model => model.MEmailAddr)</label>
+                <span class="form-control">@Html.DisplayFor(modelItem => item.MEmailAddr)</span>
+            </div>
+            <div class="w-100"></div><br>
+        </div>
+        <div class="col">
+            <a href="Edit/@item.MemberID.ToString()">
+                <input type="submit" value="Edit" class="button-reset"/>
+            </a>
+        </div>
+    }
+
+</div>

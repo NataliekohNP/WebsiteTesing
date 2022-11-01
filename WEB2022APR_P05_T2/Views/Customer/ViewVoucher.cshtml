@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WEB2022APR_P05_T2.Models.CashVoucher>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/customer_style.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="table-backdrop">
+    <table>
+        <thead> 
+            @if (Model.Count() > 0)
+            {
+                <th>
+                      @Html.DisplayNameFor(model => model.VoucherSN)
+                </th>
+                <th>
+                      @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                      @Html.DisplayNameFor(model => model.Status)
+                </th>
+            } else
+            {
+                <th style="text-align:center;">
+                    There is no records found.
+                </th>
+            }
+
+        </thead>
+        <tbody>
+            @if (Model.Count() > 0)
+            {
+                @foreach (var item in Model)
+                {
+                    @if (item.Status == '0')
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        <tr class="row-info">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VoucherSN)
+                            </td>            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Amount)
+                            </td>
+                            <td>
+                                @if (item.Status == '1')
+                                {
+                                    <span class="row-status-1">Collected</span>
+                                }
+                                else if (item.Status == '2')
+                                {
+                                    <span class="row-status-2">Redeemed</span>
+                                }
+                                else
+                                {
+                                    continue;
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>

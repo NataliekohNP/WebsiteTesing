@@ -1,0 +1,78 @@
+﻿@model WEB2022APR_P05_T2.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<head>
+    <style>
+        form{
+            width:100%;
+        }
+        #picture {
+            width: 40%;
+            height: auto;
+            
+        }
+        .upload {
+            margin-top: 5%;
+            margin-left: 10%;
+            width: 20%;
+            height: auto;
+            float: left;
+            margin-bottom: 2%;
+        }
+
+        #form {
+            font-size: 10px;
+            margin-left: 10%;
+            padding-top: 5%;
+            padding-right: 15%;
+            width: 50%;
+            height: auto;
+            float: right;
+        }
+        input[type=text] {
+            width: 100%;
+            padding: 12px 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+    </style>
+    
+</head>
+<body>
+ 
+            <form  asp-action="Edit" enctype="multipart/form-data">
+                
+                <div class="upload">
+                    <img id="picture" src="~/image/Products/@Model.ProductImage">
+                    <label asp-for="filetoupload" class="col-sm-3 col-form-label">
+                        New Photo (jpg format)
+                    </label>
+                    <div class="col-sm-9">
+                        <input asp-for="filetoupload" accept="image/jpeg" />
+                    </div>
+                </div>
+                <div id="form">
+                        <label for="pid">Product ID:</label><br>
+                        <input asp-for="ProductId" readonly><br />
+                        <label for="pname">Product Name:</label><br>
+                        <input asp-for="ProductTitle"><br />
+                        <label for="price">Price:</label><br>
+                        <input type="number" asp-for="Price" min="20" max="500" step=".01"><br><br>
+                        <label for="cate">Date:</label><br>
+                        <input asp-for="EffectiveDate" readonly><br><br>
+                        <input type="submit" value="Save" class="btn btn-primary" />
+
+                </div>
+            </form>
+
+
+
+</body>
+

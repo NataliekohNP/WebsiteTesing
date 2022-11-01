@@ -1,0 +1,68 @@
+﻿@model WEB2022APR_P05_T2.Models.Product
+
+@{
+    ViewData["Title"] = "CreateProducts";
+}
+
+<head>
+    <style>
+        form {
+            width: 100%;
+        }
+        .upload {
+            margin-top: 10%;
+            margin-left: 10%;
+            width: 30%;
+            height: auto;
+            float: left;
+            margin-bottom: 2%;
+        }
+
+        #form {
+            font-size: 10px;
+            margin-top: 5%;
+            margin-left: 10%;
+            padding-top: 5%;
+            padding-right: 15%;
+            width: 50%;
+            height: auto;
+            float: left;
+        }
+
+        input[type=text] {
+            width: 100%;
+            padding: 12px 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <form  asp-action="CreateProducts" enctype="multipart/form-data">
+        <div class="upload">
+                <label asp-for="filetoupload" class="col-sm-3 col-form-label">
+                    New Photo (jpg format)
+                </label>
+                <div class="col-sm-9">
+                    <input asp-for="filetoupload" accept="image/jpeg"  required/>
+                </div>
+         
+        </div>
+        <div id="form">
+            <label asp-for="ProductTitle">Product Name:</label><br>
+            <input type="text" asp-for="ProductTitle" required><br />
+            <label asp-for="Price" >Price:</label><br>
+            <input type="number" id="price" name="price" min="20" max="500" asp-for="Price" step=".01" required><br><br>
+            <label asp-for="Obsolete">Obsolete</label><br>
+            <input type="text" asp-for="Obsolete" value="1" readonly><br><br>
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <br>
+        </div>
+    </form>
+
+
+</body>
+

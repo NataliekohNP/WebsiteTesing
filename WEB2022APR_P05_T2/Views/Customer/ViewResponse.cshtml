@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WEB2022APR_P05_T2.Models.Response>
+
+@{
+    ViewData["Title"] = "View Response";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/customer_style.css")" rel="stylesheet" type="text/css"  />
+}
+
+<div class="table-backdrop-create">
+    <table>
+        <thead>
+            <tr>
+                @if (Model.Count() > 0)
+                {
+                    <h2>Feedback:</h2>
+                    @ViewData["user"] <br /> @ViewData["feedbackText"] <br /><br />
+                    <h3>Responses: </h3>
+                } else
+                {
+                    <th style="text-align:center;">
+                        There is no response made
+                    </th>
+                }
+            </tr>
+
+        </thead>
+        <tbody>
+            @if (Model.Count() > 0)
+            {
+                <tr>
+                    <td>Responded by</td>
+                    <td>Date Time responded</td>
+                    <td>Response</td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @if (item.MemberID == null)
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StaffID)
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MemberID)
+                            </td>
+                        }
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateTimePosted)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Text)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    @if (Model.Count() > 0)
+    {
+    <div style=" height: auto; margin-top: 3em; width: 100%; text-align: center;">
+        <span class="row-status-1" style="text-decoration:none;">@Html.ActionLink("Respond", "CreateResponse", new { id=@ViewData["feedbackID"] })</span>
+    </div>
+    <div style=" height: auto; margin-top: 3em; width: 100%; text-align: center;">
+        <a asp-action="Feedback" class="row-status-2" style="text-decoration:none;">Back to List</a>
+    </div>
+    }
+    else
+    {
+    <div style=" height: auto; margin-top: 3em; width: 100%; text-align: center;">
+        <a asp-action="Feedback" class="row-status-2" style="text-decoration:none;">Back to List</a>
+    </div>
+    }
+
+</div>

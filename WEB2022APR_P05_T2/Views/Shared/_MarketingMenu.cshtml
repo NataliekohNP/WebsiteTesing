@@ -1,0 +1,29 @@
+﻿<!-- A grey navbar that expands horizontally at medium device -->
+<nav class="navbar navbar-custom navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+    <div class="container">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img id="logo" src="~/image/passion.png" alt="passion" />CRM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#marketingNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Links in the navbar, displayed as drop-down list when collapsed -->
+    <div class="collapse navbar-collapse" id="marketingNav">
+        <!-- Links that are aligned to the left, mr-auto: right margin auto-adjusted -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="~/Marketing/ViewMonthlySpending"> View Monthly Spending </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="~/Marketing/Feedback"> Feedback </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="~/Home/LogOut">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
